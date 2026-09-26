@@ -1,0 +1,129 @@
+:root {
+  --bg: #f7f6f3;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #767676;
+  --accent: #e0392f;
+  --border: #e5e3de;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hidden { display: none !important; }
+
+/* 비밀번호 게이트 */
+.gate {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 50;
+  padding: 20px;
+}
+.gate-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.gate-box h1 { font-size: 20px; margin: 0 0 6px; }
+.gate-box p { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+.gate-box input {
+  width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border);
+  font-size: 15px; margin-bottom: 10px;
+}
+.gate-box button {
+  width: 100%; padding: 12px; border: none; border-radius: 10px;
+  background: var(--text); color: #fff; font-size: 15px; font-weight: 600;
+  cursor: pointer;
+}
+.error { color: var(--accent); font-size: 13px; min-height: 18px; }
+
+/* 앱 레이아웃 */
+.app { max-width: 640px; margin: 0 auto; padding: 16px 16px 60px; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 4px 20px;
+}
+.topbar h1 { font-size: 19px; margin: 0; }
+
+.ghost-btn {
+  background: none; border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; font-size: 13px; color: var(--muted); cursor: pointer;
+}
+
+.add-card, .gallery-section {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.add-card h2, .gallery-header h2 { font-size: 15px; margin: 0 0 12px; color: var(--muted); font-weight: 600; }
+
+#url-input {
+  width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border);
+  font-size: 15px;
+}
+
+.row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+
+#fetch-btn, #save-btn {
+  padding: 10px 16px; border: none; border-radius: 10px;
+  background: var(--accent); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer;
+}
+#save-btn { width: 100%; margin-top: 6px; }
+
+.status { font-size: 13px; color: var(--muted); }
+
+.preview {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.preview img {
+  width: 120px; height: 120px; object-fit: cover; border-radius: 10px; background: #eee; flex-shrink: 0;
+}
+.preview-fields { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 10px; }
+.preview-fields label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.preview-fields input, .preview-fields select, .preview-fields textarea {
+  padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; font-family: inherit;
+}
+
+.gallery-header { display: flex; align-items: center; justify-content: space-between; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 4px; }
+
+.ref-card {
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
+}
+.ref-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #eee; }
+.ref-card .ref-info { padding: 8px 10px; }
+.ref-card .ref-title { font-size: 12.5px; font-weight: 600; line-height: 1.3; margin: 0 0 4px; }
+.ref-card .ref-meta { font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+.ref-card .ref-badge {
+  display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 100px;
+  background: #f1f0ec; color: var(--muted); margin-bottom: 4px;
+}
+
+.empty { color: var(--muted); font-size: 14px; text-align: center; padding: 20px 0; }
+
+@media (max-width: 400px) {
+  .preview { flex-direction: column; }
+  .preview img { width: 100%; height: 180px; }
+}

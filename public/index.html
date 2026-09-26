@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>레퍼런스 저장소</title>
+<meta name="description" content="인스타그램/핀터레스트 레퍼런스를 저장하고 GitHub에 마크다운으로 동기화하는 개인용 도구" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#111111" />
+<link rel="apple-touch-icon" href="/icons/icon-192.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div id="gate" class="gate">
+  <div class="gate-box">
+    <h1>레퍼런스 저장소</h1>
+    <p>비밀번호를 입력하세요</p>
+    <input id="gate-input" type="password" placeholder="비밀번호" autocomplete="current-password" />
+    <button id="gate-submit">입장</button>
+    <p id="gate-error" class="error"></p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <h1>레퍼런스 저장소</h1>
+    <button id="logout-btn" class="ghost-btn">로그아웃</button>
+  </header>
+
+  <section class="add-card">
+    <h2>새 레퍼런스 추가</h2>
+    <input id="url-input" type="url" placeholder="인스타그램 또는 핀터레스트 링크 붙여넣기" />
+    <div class="row">
+      <button id="fetch-btn">불러오기</button>
+      <span id="fetch-status" class="status"></span>
+    </div>
+
+    <div id="preview" class="preview hidden">
+      <img id="preview-img" alt="" />
+      <div class="preview-fields">
+        <label>제목
+          <input id="title-input" type="text" placeholder="제목 (자동으로 못 가져왔으면 직접 입력)" />
+        </label>
+        <label>썸네일 이미지 URL (자동 실패 시 직접 붙여넣기 가능)
+          <input id="thumb-input" type="url" placeholder="https://..." />
+        </label>
+        <label>카테고리
+          <select id="category-input">
+            <option value="">미분류</option>
+            <option value="editorial">editorial / 매거진</option>
+            <option value="information">information / 카드뉴스</option>
+            <option value="youth">youth / 트렌드</option>
+            <option value="brand">brand campaign</option>
+            <option value="beauty">beauty / fashion</option>
+            <option value="food">F&B / 리테일</option>
+            <option value="public">public / 공공</option>
+            <option value="event">event / poster</option>
+          </select>
+        </label>
+        <label>메모 (선택)
+          <textarea id="memo-input" rows="2" placeholder="이 레퍼런스를 왜 저장했는지 간단히"></textarea>
+        </label>
+        <button id="save-btn">레퍼런스로 등록</button>
+        <span id="save-status" class="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <h2>저장된 레퍼런스</h2>
+      <button id="refresh-btn" class="ghost-btn">새로고침</button>
+    </div>
+    <div id="gallery" class="gallery"></div>
+    <p id="gallery-empty" class="empty hidden">아직 저장된 레퍼런스가 없어요.</p>
+  </section>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

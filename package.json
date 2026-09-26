@@ -1,0 +1,9 @@
+{
+  "name": "instagram_thumb_ref",
+  "version": "1.0.0",
+  "private": true,
+  "description": "인스타그램/핀터레스트 레퍼런스를 저장하고 GitHub 저장소에 마크다운으로 동기화하는 개인용 웹앱",
+  "engines": {
+    "node": ">=18"
+  }
+}
